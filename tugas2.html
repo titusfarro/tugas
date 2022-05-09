@@ -1,0 +1,99 @@
+<Script>
+//perpustakaan 
+//nambah buku 
+//hapus buku 
+//edit buku 
+//pakai function 
+
+//books =  [ipa, ips, fisika, kimia, bio]
+//1. show books 
+//2. add books 
+//3. delete books 
+//4. edit books 
+//5. Exit
+    
+    let pilihan = 0 
+    const keranjang = [] 
+    const books = [ipa, ips, fisika, sejarah, bio]
+
+    function showbooks(){
+        let infobooks = ''
+                for(let i = 0; i < books.length; i++)
+                {
+                infobooks += `buku ${books[i][0]}`
+                }
+                alert(infobooks)
+            }
+    function addbooks()
+    {
+        let temp = []
+
+        let buku = prompt('silakan ketik nama buku yang ingin ditambahkan:')
+        for(let i = 0; i < books.lenght; i++)
+        {
+            temp.push(books[i][0])
+        }
+        if(!temp.include(buku))
+        {
+            alert('buku tidak ditemukan')
+        }
+        if(!keranjang.include(buku))
+        {
+            keranjang.push(buku)
+        }
+
+    }
+    function deletebooks()
+    {
+        let cart = keranjang.length? keranjang.join(', '): ''
+
+        let deletedbooks = prompt('buku apa yang ingin dihapus? \n daftar keranjang : ' + cart)
+
+        if(!keranjang.includes(deletedbooks))
+        {
+            alert(deletedbooks + 'tidak ditemukan')
+        }
+        else 
+        {
+            keranjang.splice(keranjang.indexOf(deletedbooks),1)
+        }
+    }
+    function editbooks()
+    {
+        let book = prompt('buku apa yang akan diganti')
+        let bookindex = books.indexOf(book)
+
+        books[bookindex] = newbook
+
+        let check = prompt( `Apakah Anda Yakin Membeli \n ${show} \n 1. Ya \n 2. No`  )
+            if(check == 1)
+                pilihan = 5
+    }
+
+while (pilihan != 5) {
+    pilihan = prompt(`
+    1. daftar buku \n 
+    2. menambah buku \n 
+    3. menghapus buku \n 
+    4. mengedit buku \n 
+    5. exit`)
+
+    if(pilihan == 1)
+    {
+        showbooks(books)
+    }
+    else if(pilihan == 2)
+    {
+        addbooks(keranjang)
+    }
+    else if(pilihan == 3)
+    {
+        deletedbooks(keranjang)
+    }
+    else if(pilihan == 4)
+    {
+        editbooks(keranjang)
+    }
+}
+
+</Script>
